@@ -8,10 +8,8 @@ function typeEffect() {
         setTimeout(typeEffect, 100);
     }
 }
-
 typeEffect();
 
-/* Moving NO Button */
 const noBtn = document.getElementById("no");
 
 noBtn.addEventListener("mouseover", function() {
@@ -20,7 +18,6 @@ noBtn.addEventListener("mouseover", function() {
     noBtn.style.left = Math.random() * window.innerWidth + "px";
 });
 
-/* YES Button */
 document.getElementById("yes").addEventListener("click", function() {
 
     document.getElementById("intro").style.display = "none";
@@ -28,7 +25,7 @@ document.getElementById("yes").addEventListener("click", function() {
 
     const container = document.getElementById("balloons");
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
         let balloon = document.createElement("div");
         balloon.classList.add("balloon");
         balloon.style.left = Math.random() * window.innerWidth + "px";
