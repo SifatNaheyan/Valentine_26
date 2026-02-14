@@ -11,6 +11,7 @@ function typeEffect() {
 
 typeEffect();
 
+/* Moving NO Button */
 const noBtn = document.getElementById("no");
 
 noBtn.addEventListener("mouseover", function() {
@@ -19,6 +20,20 @@ noBtn.addEventListener("mouseover", function() {
     noBtn.style.left = Math.random() * window.innerWidth + "px";
 });
 
+/* YES Button */
 document.getElementById("yes").addEventListener("click", function() {
-    alert("Yayyyy 💖 I Love You!");
+
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("scene").style.display = "block";
+
+    const container = document.getElementById("balloons");
+
+    for (let i = 0; i < 20; i++) {
+        let balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
+        balloon.style.animationDuration = (4 + Math.random()*4) + "s";
+        container.appendChild(balloon);
+    }
 });
