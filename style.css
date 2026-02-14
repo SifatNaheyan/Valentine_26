@@ -1,18 +1,18 @@
 body {
     margin: 0;
     height: 100vh;
+    background: linear-gradient(45deg, #ff4e50, #ff6f91, #ffc75f, #ff0055);
+    background-size: 400% 400%;
+    animation: bgMove 8s infinite alternate;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #ff4e50, #fc913a, #f9d423, #ff0055);
-    background-size: 400% 400%;
-    animation: gradientMove 8s infinite alternate;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     overflow: hidden;
     color: white;
 }
 
-@keyframes gradientMove {
+@keyframes bgMove {
     0% { background-position: left; }
     100% { background-position: right; }
 }
@@ -22,44 +22,32 @@ body {
     width: 100%;
 }
 
-/* HEART */
+/* Heart */
 .heart {
     width: 100px;
     height: 100px;
     background: red;
-    position: relative;
     transform: rotate(-45deg);
-    animation: beat 1s infinite;
     margin: 20px auto;
+    animation: beat 1s infinite;
 }
 
 .heart:before,
 .heart:after {
     content: "";
+    position: absolute;
     width: 100px;
     height: 100px;
     background: red;
     border-radius: 50%;
-    position: absolute;
 }
 
-.heart:before {
-    top: -50px;
-    left: 0;
-}
-
-.heart:after {
-    left: 50px;
-    top: 0;
-}
+.heart:before { top: -50px; left: 0; }
+.heart:after { left: 50px; top: 0; }
 
 @keyframes beat {
     0%,100% { transform: rotate(-45deg) scale(1); }
     50% { transform: rotate(-45deg) scale(1.2); }
-}
-
-h1 {
-    font-size: 28px;
 }
 
 /* Buttons */
@@ -72,22 +60,14 @@ button {
     cursor: pointer;
 }
 
-#yes {
-    background: #ff0055;
-    color: white;
-}
+#yes { background: #ff0055; color: white; }
+#no { background: white; }
 
-#no {
-    background: white;
-}
-
-/* SCENE */
+/* Scene */
 .scene {
     display: none;
     position: relative;
-    width: 100%;
     height: 450px;
-    margin-top: 20px;
 }
 
 h2 {
@@ -104,66 +84,94 @@ h2 {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background: linear-gradient(to top, #1f8f2e, #4caf50);
 }
 
-/* Stickman */
-.stickman {
+/* Boy */
+.boy {
     position: absolute;
-    bottom: 100px;
+    bottom: 120px;
+    left: 35%;
 }
 
-.head {
+.boy .head {
     width: 30px;
     height: 30px;
     border: 3px solid white;
     border-radius: 50%;
-    margin: auto;
 }
 
-.body {
+.boy .body {
     width: 3px;
     height: 50px;
     background: white;
     margin: auto;
 }
 
-.arm, .leg {
+.boy .leg.kneel {
     width: 40px;
     height: 3px;
     background: white;
-    position: absolute;
-}
-
-/* Boy kneeling */
-.boy { left: 35%; }
-
-.boy .leg.left {
     transform: rotate(90deg);
-    top: 80px;
-    left: -15px;
+    margin-top: 10px;
 }
 
-.boy .leg.right {
+.boy .leg.back {
+    width: 40px;
+    height: 3px;
+    background: white;
     transform: rotate(20deg);
-    top: 80px;
-    left: 10px;
+    margin-top: 10px;
 }
 
-/* Girl standing */
-.girl { left: 55%; }
-
-.girl .leg.left {
-    transform: rotate(20deg);
-    top: 80px;
-    left: -15px;
+/* Flower */
+.flower {
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    left: 20px;
 }
 
-.girl .leg.right {
-    transform: rotate(-20deg);
-    top: 80px;
-    left: 10px;
+.flower:after {
+    content: "";
+    width: 2px;
+    height: 20px;
+    background: green;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+/* Girl */
+.girl {
+    position: absolute;
+    bottom: 120px;
+    left: 55%;
+}
+
+.girl .head {
+    width: 30px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.girl .body {
+    width: 3px;
+    height: 60px;
+    background: white;
+    margin: auto;
+}
+
+.girl .leg {
+    width: 40px;
+    height: 3px;
+    background: white;
+    margin-top: 10px;
 }
 
 /* Balloons */
