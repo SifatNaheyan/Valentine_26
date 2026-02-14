@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff4e50, #fc913a, #f9d423);
+    background-size: 300% 300%;
+    animation: gradientMove 6s infinite alternate;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+.container {
+    text-align: center;
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite;
+    margin: 20px auto;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart:before {
+    top: -50px;
+    left: 0;
+}
+
+.heart:after {
+    left: 50px;
+    top: 0;
+}
+
+@keyframes beat {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.2); }
+}
+
+h1 {
+    color: white;
+    font-size: 28px;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yes {
+    background: #ff0055;
+    color: white;
+}
+
+#no {
+    background: white;
+}
